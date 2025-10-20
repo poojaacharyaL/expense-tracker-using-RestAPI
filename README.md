@@ -5,7 +5,7 @@ This project demonstrates **CRUD operations** using **Spring Boot**, **Spring Da
 
 ---
 
-## **Features**
+## Features
 - Add, view, update, and delete expenses (CRUD)
 - RESTful API endpoints for easy integration
 - H2 in-memory database (no installation required)
@@ -14,23 +14,53 @@ This project demonstrates **CRUD operations** using **Spring Boot**, **Spring Da
 
 ---
 
-## **Tech Stack**
-- **Backend:** Java 17, Spring Boot 3
-- **Database:** H2 (in-memory)
-- **ORM:** Spring Data JPA
-- **Utilities:** Lombok
-- **Build Tool:** Maven
+## Tech Stack
+- **Backend:** Java 17, Spring Boot 3  
+- **Database:** H2 (in-memory)  
+- **ORM:** Spring Data JPA  
+- **Utilities:** Lombok  
+- **Build Tool:** Maven  
 
 ---
 
-## **Project Structure**
-expense-tracker/
- ├─ src/main/java/com/expensetracker/
- │    ├─ controller/ExpenseController.java
- │    ├─ entity/Expense.java
- │    ├─ repository/ExpenseRepository.java
- │    ├─ service/ExpenseService.java
- │    └─ ExpenseTrackerApplication.java
- ├─ src/main/resources/
- │    └─ application.properties
- └─ pom.xml
+## Architecture / Flow
+Postman / REST Client
+|
+v
+ExpenseController (REST APIs)
+|
+v
+ExpenseService (Business Logic)
+|
+v
+ExpenseRepository (JPA / H2 Database)
+|
+v
+Expense Entity (Represents expenses table)
+
+
+---
+
+## API Workflow
+| Component  | Responsibility |
+|-----------|----------------|
+| Controller | Handles HTTP requests and responses |
+| Service    | Contains business logic for CRUD operations |
+| Repository | Interacts with H2 database using Spring Data JPA |
+| Entity     | Represents Expense table in the database |
+
+---
+
+## API Endpoints
+
+| Operation        | Method | Endpoint                  | Body (JSON) Example |
+|-----------------|--------|--------------------------|------------------|
+| Create Expense   | POST   | `/api/expenses`          | `{ "title": "Groceries", "category": "Food", "amount": 1200, "date": "2025-10-20" }` |
+| Get All Expenses | GET    | `/api/expenses`          | — |
+| Get Expense by ID| GET    | `/api/expenses/{id}`     | — |
+| Update Expense   | PUT    | `/api/expenses/{id}`     | `{ "title": "Dinner", "category": "Food", "amount": 800, "date": "2025-10-21" }` |
+| Delete Expense   | DELETE | `/api/expenses/{id}`     | — |
+
+---
+
+
