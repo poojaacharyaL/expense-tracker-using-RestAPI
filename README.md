@@ -25,17 +25,17 @@ This project demonstrates **CRUD operations** using **Spring Boot**, **Spring Da
 
 ## Architecture / Flow
 Postman / REST Client
-|
-v
+-->
+
 ExpenseController (REST APIs)
-|
-v
+-->
+
 ExpenseService (Business Logic)
-|
-v
+-->
+
 ExpenseRepository (JPA / H2 Database)
-|
-v
+-->
+
 Expense Entity (Represents expenses table)
 
 
